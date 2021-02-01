@@ -11,5 +11,6 @@ namespace Vocabulary.Abstract
         void DeleteWord(string word);
         IEnumerable<Word> GetWords();
         void Clear();
+        void ResetRates();
     }
 }

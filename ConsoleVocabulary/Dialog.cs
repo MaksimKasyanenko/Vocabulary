@@ -70,6 +70,12 @@ namespace VocabularyConsole
             }
 			_ui.ShowMessage("Слов больше нет");
 		}
+		private void ResetRates()
+        {
+			if (!_ui.AskGeneric($"Вы действительно хотите обнулить рейтинг слов?")) return;
+			_voc.ResetRates();
+			_ui.ShowMessage("Рейтинг слов обнулен");
+		}
 		private void EnterCommand()
 		{
 			Console.Write(">> ");
@@ -98,7 +104,8 @@ namespace VocabularyConsole
 				new ConsoleCommand("*cv","Очистить словарь", ()=>ClearVocabulary()),
 				new ConsoleCommand("*sw","Показать слова",()=>ShowAllWords()),
 				new ConsoleCommand("*aw","Добавить слово",()=>AddWord()),
-				new ConsoleCommand("*dw","Удалить слово",()=>DeleteWord())
+				new ConsoleCommand("*dw","Удалить слово",()=>DeleteWord()),
+				new ConsoleCommand("*rr","Обнулить рейтинг слов", ()=>ResetRates())
 			};
 			for(int i = 0; i < _trainers.Length; i++)
             {

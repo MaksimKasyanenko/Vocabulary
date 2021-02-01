@@ -50,5 +50,10 @@ namespace Vocabulary
 			_repository.GetWords().Clear();
 			_repository.SaveChanges();
 		}
+
+        public void ResetRates()
+        {
+            _repository.GetWords().ForEach(w=>w.Rating.Rate = 0);
+        }
     }
 }
